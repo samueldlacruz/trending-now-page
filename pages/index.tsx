@@ -1,85 +1,90 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Tech Top Headlines</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      {/* Header */}
+      <header className="w-full mt-4 max-w-[585px]">
+        <div className="flex flex-col justify-center items-center w-full">
+          <h1 className="text-5xl flex text-center text-white flex-col font-bold">
+            <span className="first-letter:text-red-700">Top</span>
+            <span className="mt-1">Headlines</span>
+          </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
+          <div className="w-full md:px-0 px-6">
+            <div className="mt-4 flex w-full">
+              <input type="text" className="border w-11/12 font-mono rounded-sm py-2 px-2 border-slate-600/60 bg-white/20" placeholder="Search anything, Example: Tesla" />
+              <button className="bg-red-700 cursor-pointer text-white rounded-sm ml-2 py-2 px-4">
+                <i className="ri-search-line"></i>
+              </button>
+            </div>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
+          <div className="flex gap-2 mt-4 justify-center flex-wrap">
+            <span className="flex border border-red-400 bg-slate-600/60 px-3 hover:bg-slate-500/60 hover:cursor-pointer text-sm font-bold text-white rounded-full capitalize"><i className="text-red-400 pr-1 ri-fire-fill"></i>Top</span>
+            <span className="flex border border-slate-400 bg-slate-600/60 px-3 hover:bg-slate-500/60 hover:cursor-pointer text-sm font-bold text-white rounded-full capitalize"><i className="text-green-400 pr-1 ri-terminal-box-line"></i>technology</span>
+            <span className="flex border border-slate-400 bg-slate-600/60 px-3 hover:bg-slate-500/60 hover:cursor-pointer text-sm font-bold text-white rounded-full capitalize"><i className="text-blue-400 pr-1 ri-briefcase-4-fill"></i>business</span>
+            <span className="flex border border-slate-400 bg-slate-600/60 px-3 hover:bg-slate-500/60 hover:cursor-pointer text-sm font-bold text-white rounded-full capitalize"><i className="text-orange-400 pr-1 ri-clapperboard-fill"></i>entertainment</span>
+            <span className="flex border border-slate-400 bg-slate-600/60 px-3 hover:bg-slate-500/60 hover:cursor-pointer text-sm font-bold text-white rounded-full capitalize"><i className="text-amber-800 pr-1 ri-basketball-fill"></i>sports</span>
+          </div>
+          </div>
+        </div>
+      </header>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
+      <main className="flex flex-col mt-4 md:px-0 px-5 w-full justify-center items-center">
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className="border-slate-200/50 bg-slate-800/50 hover:cursor-pointer hover:scale-[1.01] m-2 border rounded-sm px-3 py-4 max-w-[585px] shadow-md duration-100 ease-in hover:shadow-slate-800/70">
+          <h3 className="font-semibold text-white/70">New Title</h3>
+          <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+          <p className="text-white w-full text-xs mt-4 flex justify-between">
+            <span><strong>Source:</strong> HackerNews</span>
+            <time className="italic" dateTime="2008-02-14 20:00">2008-02-14 20:00</time>
+          </p>
+        </div>
+        <div className="border-slate-200/50 bg-slate-800/50 hover:cursor-pointer hover:scale-[1.01] m-2 border rounded-sm px-3 py-4 shadow-md duration-100 ease-in hover:shadow-slate-800/70">
+          <h3 className="font-semibold text-white/70">New Title</h3>
+          <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+          <p className="text-white w-full text-xs mt-4 flex justify-between">
+            <span><strong>Source:</strong> HackerNews</span>
+            <time className="italic" dateTime="2008-02-14 20:00">2008-02-14 20:00</time>
+          </p>
+        </div>
+        <div className="border-slate-200/50 bg-slate-800/50 hover:cursor-pointer hover:scale-[1.01] m-2 border rounded-sm px-3 py-4 shadow-md duration-100 ease-in hover:shadow-slate-800/70">
+          <h3 className="font-semibold text-white/70">New Title</h3>
+          <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+          <p className="text-white w-full text-xs mt-4 flex justify-between">
+            <span><strong>Source:</strong> HackerNews</span>
+            <time className="italic" dateTime="2008-02-14 20:00">2008-02-14 20:00</time>
+          </p>
+        </div>
+        <div className="border-slate-200/50 bg-slate-800/50 hover:cursor-pointer hover:scale-[1.01] m-2 border rounded-sm px-3 py-4 shadow-md duration-100 ease-in hover:shadow-slate-800/70">
+          <h3 className="font-semibold text-white/70">New Title</h3>
+          <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+          <p className="text-white w-full text-xs mt-4 flex justify-between">
+            <span><strong>Source:</strong> HackerNews</span>
+            <time className="italic" dateTime="2008-02-14 20:00">2008-02-14 20:00</time>
+          </p>
         </div>
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
+      {/* <footer className="flex h-10 w-full items-center pt-4 justify-center border-t border-t-blue-100/5">
         <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className="text-blue-500 hover:text-blue-700 text-xs"
+          href="https://github.com/samueldlacruz"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          Powered by
+          <span> Samuel De la Cruz G.</span>
         </a>
-      </footer>
-    </div>
+        <Image src="/github.svg" alt="Github Logo" width={72} height={16} />
+      </footer> */}
+    </div >
   )
 }
 
