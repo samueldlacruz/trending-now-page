@@ -18,7 +18,7 @@ class MyDocument extends Document {
                     <link rel="shortcut icon" href='/images/favicon.png' type="image/png" />
                     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
                 </Head>
-                <body className="bg-gradient-to-b from-slate-900 to-[#02577a]">
+                <body>
                     <Main />
                     <NextScript />
                 </body>
