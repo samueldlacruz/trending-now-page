@@ -14,8 +14,9 @@ class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head> 
-                    <link rel="shortcut icon" href='/images/favicon.png' type="image/png" />
+                <Head>
+                    <title>Trending Now</title>
+                    <link rel="shortcut icon" href='/favicon.png' type="image/png" />
                     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
                 </Head>
                 <body>
