@@ -11,3 +11,25 @@
         @apply bg-gradient-to-b from-slate-900 to-[#02577a];
     }
 }
+
+.entry-card {
+    animation: 0.8s fadeIn ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hidden-overflow::-webkit-scrollbar {
+    display: none;
+}
