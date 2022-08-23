@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   const { state, dispatch } = useContext(NewsContext);
 
   const fetchNews = () => {
-    getNews().then((data) => {
+    getNews({ category: state.category }).then((data) => {
       if (data.status === "error") return dispatch(handleError(data.message))
 
       dispatch(saveNews({ news: data.articles, total: data.totalResults }))
