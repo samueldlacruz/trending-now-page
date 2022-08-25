@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { useContext, useEffect } from 'react'
 import EntryCard from '../components/EntryCard'
 import Header from '../components/Header'
+import ScrollToTop from '../components/ScrollToTop'
 import Spinner from '../components/Spinner'
 import { NewsContext } from '../context/news.context'
 import { useGetNews } from '../hooks/useGetNews'
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
 
         {!state.loading && state.news.map((article, index) => <EntryCard article={article} key={index} />)}
       </main>
+      <ScrollToTop />
     </div>
   )
 }
