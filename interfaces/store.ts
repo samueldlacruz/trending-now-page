@@ -1,9 +1,12 @@
 import { NewsArticleI } from "./News"
 
 export type NewsStateType =  {
-    news: NewsArticleI[]
+    news: NewsType
     loading: boolean
     category: string
     error: string | null
-    totalResults: number
+}
+
+export type NewsType = {
+    [key: string]: NewsArticleI[]
 }

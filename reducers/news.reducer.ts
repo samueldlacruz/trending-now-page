@@ -5,12 +5,14 @@ export enum Types {
     SAVE_NEWS = "SET_NEWS",
     UPDATE_CATEGORY = "UPDATE_CATEGORY",
     SET_ERROR = "SET_ERROR",
+    UPDATE_LOADING = "SET_LOAD",
 }
 
 export type NewsActions =
-    | { type: Types.SAVE_NEWS, payload: { totalResults: number, news: NewsArticleI[] } }
+    | { type: Types.SAVE_NEWS, payload: { category: string, news: NewsArticleI[] } }
     | { type: Types.UPDATE_CATEGORY, category: string }
     | { type: Types.SET_ERROR, message: string }
+    | { type: Types.UPDATE_LOADING, value: boolean }
 
 export function NewsReducer(state: NewsStateType, action: NewsActions) {
     switch (action.type) {
@@ -18,8 +20,10 @@ export function NewsReducer(state: NewsStateType, action: NewsActions) {
             return {
                 ...state,
                 loading: false,
-                news: action.payload.news,
-                totalResults: action.payload.totalResults
+                news: {
+                    ...state.news,
+                    [action.payload.category]: action.payload.news
+                },
             }
         case Types.SET_ERROR:
             return {
@@ -32,6 +36,11 @@ export function NewsReducer(state: NewsStateType, action: NewsActions) {
                 ...state,
                 loading: true,
                 category: action.category,
+            }
+        case Types.UPDATE_LOADING:
+            return {
+                ...state,
+                loading: action.value
             }
         default:
             return state

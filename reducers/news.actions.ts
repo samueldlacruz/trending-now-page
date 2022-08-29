@@ -6,12 +6,17 @@ export const updateCategory = (category: string) => ({
     category: category
 })
 
+export const updateLoading = (value: boolean) => ({
+    value,
+    type: Types.UPDATE_LOADING,
+})
+
 export const handleError = (message: string) => ({
     message,
     type: Types.SET_ERROR,
 })
 
-export const saveNews = ({ news, total }: { news: NewsArticleI, total: number }) => ({
+export const saveNews = ({ news, category }: { news: NewsArticleI, category: string }) => ({
     type: Types.SAVE_NEWS,
-    payload: { news, totalResults: total }
+    payload: { category, news }
 })

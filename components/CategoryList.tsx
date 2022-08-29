@@ -14,6 +14,7 @@ const CategoriesList = () => {
         "entertainment": "text-orange-400",
         "sports": "text-amber-500",
     }
+    
     return (
         <div className="flex gap-2 mt-4 justify-center flex-wrap">
             {categories.map((category, index) => (
