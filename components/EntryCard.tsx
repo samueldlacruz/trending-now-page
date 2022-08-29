@@ -1,19 +1,27 @@
 import { NewsArticleI } from "../interfaces/News"
 import DOMPurify from 'dompurify';
+import { useState } from "react";
 
 const EntryCard = ({ article }: { article: NewsArticleI }) => {
-    
+
+    const [hasImageLoaded, setHasImageLoaded] = useState(false);
+
     const sanitizedDescription = () => ({
-      __html: DOMPurify.sanitize(article.description)
+        __html: DOMPurify.sanitize(article.description)
     })
 
     return (
         <div className="entry-card group">
-            <img src={article.urlToImage} className="entry-card__image" alt={article.title.split(' ')[0]} />
-          
+            <img
+                src={article.urlToImage}
+                onLoad={() => setHasImageLoaded(prev => !prev)}
+                className={`entry-card__image ${hasImageLoaded ? 'block' : 'hidden'}`}
+                alt="article title"
+            />
+
             <div className="entry-card__container">
                 <h3 className="entry-card__title">{article.title}</h3>
-                
+
                 <div className="entry-card__description" dangerouslySetInnerHTML={sanitizedDescription()} />
 
                 <p className="entry-card__footer">
