@@ -12,8 +12,35 @@
     }
 }
 
-.entry-card {
-    animation: 0.8s fadeIn ease-out;
+@layer components {
+    .entry-card {
+      animation: 0.8s fadeIn ease-out;
+       @apply border-slate-200/50 relative w-full bg-slate-800/50 m-2 border rounded-sm shadow-md duration-100 ease-in;
+    }
+
+    .entry-card__image {
+        @apply h-full w-1/3 object-cover group-hover:opacity-20 opacity-10 right-0 -z-10 absolute;
+    }    
+
+    .entry-card__container {
+      @apply w-full px-3 py-4;
+    }
+
+    .entry-card__title {
+        @apply font-semibold text-white/80;
+    }
+
+    .entry-card__description {
+      @apply text-white/70 mt-2;
+    }
+
+    .entry-card__footer {
+      @apply text-white w-full text-xs mt-4 flex justify-between;
+    }
+
+    .entry-card:hover {
+      @apply cursor-pointer scale-[1.01] shadow-slate-800/70 bg-slate-800/70;
+    }
 }
 
 @keyframes fadeIn {
