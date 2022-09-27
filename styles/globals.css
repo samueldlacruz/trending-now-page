@@ -8,7 +8,7 @@
 @layer base {
     body {
         font-family: 'Rubik', sans-serif;
-        @apply bg-gradient-to-b from-slate-900 to-[#02577a];
+        @apply bg-gradient-to-b from-slate-900 to-[#02577a] bg-no-repeat h-full;
     }
 }
 
@@ -40,6 +40,14 @@
 
     .entry-card:hover {
       @apply cursor-pointer scale-[1.01] shadow-slate-800/70 bg-slate-800/70;
+    }
+
+    .back-button {
+        @apply text-4xl text-white z-10 opacity-40 hover:opacity-100 absolute m-5 cursor-pointer;
+    }
+
+    .article-page-button {
+        @apply text-white w-full uppercase text-center flex justify-center px-4 py-3 text-xl h-full border border-slate-300/50 duration-100 ease-out;
     }
 }
 

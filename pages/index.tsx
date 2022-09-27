@@ -1,28 +1,37 @@
 import type { NextPage } from 'next'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import ArticleModal from '../components/Article/ArticleModal'
 import EntryCard from '../components/EntryCard'
 import Header from '../components/Header'
 import ScrollToTop from '../components/ScrollToTop'
 import Spinner from '../components/Spinner'
 import { NewsContext } from '../context/news.context'
-import { useGetNews } from '../hooks/useGetNews'
+import { NewsArticleI } from '../interfaces/News'
 import { handleError, saveNews, updateLoading } from '../reducers/news.actions'
+import NewsApi from '../services/NewsAPI'
 
 const Home: NextPage = () => {
 
-  const getNews = useGetNews();
-
   const { state, dispatch } = useContext(NewsContext);
-
+  const [article, setArticle] = useState<NewsArticleI | null>(null)
   const currentNews = state.news[state.category];
 
-  const fetchNews = () => {
-    getNews({ category: state.category }).then((data) => {
-      if (data.status === "error") return dispatch(handleError(data.message))
+  const fetchNews = async () => {
+    try {
+      
+      const response = await NewsApi.getTopHeadlines({ category: state.category });
 
-      dispatch(saveNews({ news: data.articles, category: state.category }))
+      if (response.status === "error") return dispatch(handleError(response.message!))
 
-    }).catch((_err) => dispatch(handleError("Something was wrong")))
+      const news = response.articles;
+
+      dispatch(saveNews({ news, category: state.category }))
+
+    } catch (error) {
+
+      dispatch(handleError(`Something was wrong ${error}`))
+
+    }
   }
 
   useEffect(() => {
@@ -31,15 +40,24 @@ const Home: NextPage = () => {
   }, [state.category])
 
   return (
-    <div className="flex min-h-screen flex-col items-center py-2">
+    <div className="flex min-h-screen relative flex-col items-center">
       <Header />
 
-      <main className="flex flex-col mt-4 md:px-0 px-5 md:w-7/12 w-full justify-center items-center">
+      <main className="flex flex-col mt-4 md:px-0 py-2 px-5 md:w-7/12 w-full justify-center items-center">
         {state.loading && <Spinner />}
+
         {(!state.loading && currentNews.length === 0) && <Spinner />}
-        {!state.loading && currentNews.map((article, index) => <EntryCard article={article} key={index} />)}
+
+        {!state.loading && currentNews.map((article, index) => (
+          <EntryCard
+            key={index}
+            article={article}
+            onClick={() => setArticle(article)}
+          />
+        ))}
       </main>
 
+      {article && <ArticleModal article={article} onClose={() => setArticle(null)} />}
       <ScrollToTop />
     </div>
   )

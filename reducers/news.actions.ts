@@ -16,7 +16,7 @@ export const handleError = (message: string) => ({
     type: Types.SET_ERROR,
 })
 
-export const saveNews = ({ news, category }: { news: NewsArticleI, category: string }) => ({
+export const saveNews = ({ news, category }: { news: NewsArticleI[], category: string }) => ({
     type: Types.SAVE_NEWS,
     payload: { category, news }
 })

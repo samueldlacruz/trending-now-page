@@ -2,7 +2,7 @@ import { NewsArticleI } from "../interfaces/News"
 import DOMPurify from 'dompurify';
 import { useState } from "react";
 
-const EntryCard = ({ article }: { article: NewsArticleI }) => {
+const EntryCard = ({ article, onClick }: { article: NewsArticleI, onClick: () => void }) => {
 
     const [hasImageLoaded, setHasImageLoaded] = useState(false);
 
@@ -11,7 +11,7 @@ const EntryCard = ({ article }: { article: NewsArticleI }) => {
     })
 
     return (
-        <div className="entry-card group">
+        <div className="entry-card group" onClick={onClick}>
             <img
                 src={article.urlToImage}
                 onLoad={() => setHasImageLoaded(prev => !prev)}
