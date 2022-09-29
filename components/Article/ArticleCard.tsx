@@ -1,8 +1,8 @@
-import { NewsArticleI } from "../../interfaces/News"
+import { ArticleI } from "../../interfaces/Article"
 import DOMPurify from 'dompurify';
 import { useState } from "react";
 
-const ArticleCard = ({ article, onClick }: { article: NewsArticleI, onClick: () => void }) => {
+const ArticleCard = ({ article, onClick }: { article: ArticleI, onClick: () => void }) => {
 
     const [hasImageLoaded, setHasImageLoaded] = useState(false);
 

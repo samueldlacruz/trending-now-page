@@ -1,4 +1,4 @@
-import { NewsArticleI } from "./News"
+import { ArticleI } from "../../interfaces/Article"
 
 export type NewsStateType =  {
     news: NewsType
@@ -9,5 +9,5 @@ export type NewsStateType =  {
 }
 
 export type NewsType = {
-    [key: string]: NewsArticleI[]
+    [key: string]: ArticleI[]
 }

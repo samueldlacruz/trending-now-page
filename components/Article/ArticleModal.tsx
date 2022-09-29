@@ -1,8 +1,8 @@
 import DOMPurify from "dompurify"
-import { NewsArticleI } from "../../interfaces/News"
+import { ArticleI } from "../../interfaces/Article"
 import ArticleContent from "./ArticleContent"
 
-const ArticleModal = ({ article, onClose }: { article: NewsArticleI, onClose: () => void }) => {
+const ArticleModal = ({ article, onClose }: { article: ArticleI, onClose: () => void }) => {
   
     return (
         <div className="h-screen overflow-auto border-2 text-white px-4 py-3 border-gray-500 z-50 flex flex-col fixed w-full bg-slate-900/95">

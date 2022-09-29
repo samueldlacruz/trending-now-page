@@ -1,10 +1,10 @@
 import { createContext, ReactNode, useReducer } from "react";
-import { NewsArticleI } from "../interfaces/News";
-import { NewsStateType, NewsType } from "../interfaces/store";
-import { NewsReducer } from "../reducers/news.reducer";
+import { ArticleI } from "../../interfaces/Article";
+import { NewsReducer } from "../../reducers/news.reducer";
+import { NewsStateType, NewsType } from "./news.interface";
 
 const initialState = {
-    news: { general: [] as NewsArticleI[] } as NewsType,
+    news: { general: [] as ArticleI[] } as NewsType,
     category: "general",
     loading: false,
     query: null,

@@ -1,4 +1,4 @@
-import { GetNewsOptionsI, GetNewsResponseI, GetSourcesResponseI } from "../interfaces/GetNews";
+import { GetNewsOptionsI, GetNewsResponseI, GetSourcesResponseI } from "./NewsAPI.interface";
 import { parametersFormatted } from "../utils/parameters";
 
 class NewsAPI {

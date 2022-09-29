@@ -1,4 +1,4 @@
-import { NewsArticleI } from "../interfaces/News";
+import { ArticleI } from "../interfaces/Article";
 
 export enum Types {
     SAVE_NEWS = "SET_NEWS",
@@ -9,7 +9,7 @@ export enum Types {
 }
 
 export type NewsActions =
-    | { type: Types.SAVE_NEWS, payload: { category: string, news: NewsArticleI[] } }
+    | { type: Types.SAVE_NEWS, payload: { category: string, news: ArticleI[] } }
     | { type: Types.UPDATE_CATEGORY, category: string }
     | { type: Types.SET_ERROR, message: string }
     | { type: Types.UPDATE_LOADING, value: boolean }

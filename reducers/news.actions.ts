@@ -1,4 +1,4 @@
-import { NewsArticleI } from "../interfaces/News"
+import { ArticleI } from "../interfaces/Article"
 import { Types } from "./news.types"
 
 export const updateCategory = (category: string) => ({
@@ -21,7 +21,7 @@ export const handleError = (message: string) => ({
     type: Types.SET_ERROR,
 })
 
-export const saveNews = ({ news, category }: { news: NewsArticleI[], category: string }) => ({
+export const saveNews = ({ news, category }: { news: ArticleI[], category: string }) => ({
     type: Types.SAVE_NEWS,
     payload: { category, news }
 })

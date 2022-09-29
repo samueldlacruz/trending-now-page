@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { NewsContext } from "../context/news.context"
+import { NewsContext } from "../context/news/news.context"
 import { updateCategory } from "../reducers/news.actions";
 import { CATEGORIES_LIST as categories } from "../utils/categories"
 
