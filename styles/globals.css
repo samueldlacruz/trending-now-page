@@ -44,6 +44,10 @@
         @apply text-white w-full text-xs mt-4 flex justify-between;
     }
 
+    .article-page-button {
+        @apply text-white w-full uppercase text-center flex justify-center px-4 py-3 text-xl h-full border border-slate-300/50 duration-100 ease-out;
+    }
+
     /* source card component */
     .source-card {
         @apply border duration-75 ease-out flex flex-col justify-between bg-slate-800/30 backdrop-blur-sm border-gray-500 rounded-sm;

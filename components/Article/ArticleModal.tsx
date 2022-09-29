@@ -5,7 +5,7 @@ import ArticleContent from "./ArticleContent"
 const ArticleModal = ({ article, onClose }: { article: ArticleI, onClose: () => void }) => {
   
     return (
-        <div className="h-screen overflow-auto border-2 text-white px-4 py-3 border-gray-500 z-50 flex flex-col fixed w-full bg-slate-900/95">
+        <div className="h-screen fixed overflow-auto border-2 text-white px-4 py-3 border-gray-500 z-50 flex flex-col w-full bg-slate-900/95">
             <img src={article.urlToImage} className="h-3/5 rounded opacity-70 object-top object-cover bg-center" alt="article image" />
             <span className="absolute top-4 text-2xl h-10 w-10 left-5 rounded-full hover:bg-blue-800 bg-blue-800/40 cursor-pointer flex justify-center items-center" onClick={onClose}>
                 <i className="ri-arrow-left-line"></i>

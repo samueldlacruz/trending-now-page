@@ -57,55 +57,53 @@ const NewsPage = () => {
   }, [category])
 
   return (
-    <>
+    <div className="flex min-h-screen mb-5 relative flex-col items-center">
       <Navbar />
 
-      <div className="flex min-h-screen relative flex-col items-center">
-
-        <header className="w-full mt-4">
-          <div className="flex flex-col justify-center items-center w-full">
-            <PageTitle
-              title="Trending Now"
-              subtitle="only the top headlines"
-            />
-
-            <div className="flex items-center flex-col md:px-0 px-6">
-              <Search />
-              <CategoriesFilter />
-            </div>
-          </div>
-        </header>
-
-        <main className="flex flex-col mt-4 md:px-0 py-2 px-5 md:w-7/12 w-full justify-center items-center">
-
-          {loading && <Spinner />}
-
-          {(error && !loading) ?
-            <Inform message={error} />
-            : (
-              <>
-                {(!loading && currentNews.length === 0) && <Inform message="No news to show now" />}
-                {!loading && currentNews.map((article, index) => (
-                  <ArticleCard
-                    key={index}
-                    article={article}
-                    onClick={() => setArticle(article)}
-                  />
-                ))}
-              </>
-            )}
-        </main>
-
-        {article && (
-          <ArticleModal
-            article={article}
-            onClose={() => setArticle(null)}
+      <header className="w-full mt-4">
+        <div className="flex flex-col justify-center items-center w-full">
+          <PageTitle
+            title="Trending Now"
+            subtitle="only the top headlines"
           />
-        )}
 
-        <ScrollToTop />
-      </div>
-    </>
+          <div className="flex items-center flex-col md:px-0 px-6">
+            <Search />
+            <CategoriesFilter />
+          </div>
+        </div>
+      </header>
+
+      <main className="flex flex-col my-10 md:px-0 py-2 px-5 md:w-7/12 w-full justify-center items-center">
+
+        {loading && <Spinner />}
+
+        {(error && !loading) ?
+          <Inform message={error} />
+          : (
+            <>
+              {(!loading && currentNews.length === 0) && <Inform message="No news to show now" />}
+              {!loading && currentNews.map((article, index) => (
+                <ArticleCard
+                  key={index}
+                  article={article}
+                  onClick={() => setArticle(article)}
+                />
+              ))}
+            </>
+          )}
+      </main>
+
+      {article && (
+        <ArticleModal
+          article={article}
+          onClose={() => setArticle(null)}
+        />
+      )}
+
+      <ScrollToTop />
+    </div>
+
   )
 }
 

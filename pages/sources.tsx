@@ -26,8 +26,8 @@ const SourcesPage = ({ sources }: { sources: SourceI[] }) => {
 
     return (
         <>
-            <Navbar />
-            <div className="flex min-h-screen mt-10 mb-10 relative flex-col">
+            <div className="flex min-h-screen mb-5 relative flex-col">
+                <Navbar />
                 <PageTitle title="Sources" />
 
                 <main className="flex flex-col md:px-10 px-5 mt-8 w-full justify-center items-center">
