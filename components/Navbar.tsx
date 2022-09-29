@@ -12,13 +12,13 @@ const Navbar = () => {
             <ul className="list-none w-1/4 flex justify-center gap-5 text-2xl text-white">
                 <li
                     onClick={() => router.push('/')}
-                    className={`uppercase cursor-pointer font-medium ${addActiveClasses('/', "border-red-600 border-b-4")}`}>
+                    className={`uppercase cursor-pointer font-normal ${addActiveClasses('/', "border-red-600 border-b-4")}`}>
                     news
                 </li>
 
                 <li
                     onClick={() => router.push('/sources')}
-                    className={`uppercase cursor-pointer font-medium ${addActiveClasses('/sources', "border-red-600 border-b-4")}`}>
+                    className={`uppercase cursor-pointer font-normal ${addActiveClasses('/sources', "border-red-600 border-b-4")}`}>
                     sources
                 </li>
             </ul>

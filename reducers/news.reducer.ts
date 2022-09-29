@@ -7,7 +7,7 @@ export function NewsReducer(state: NewsStateType, action: NewsActions) {
         case Types.SAVE_NEWS:
             return {
                 ...state,
-                loading: false,
+                error: null,
                 news: {
                     ...state.news,
                     [action.payload.category]: action.payload.news
@@ -16,13 +16,11 @@ export function NewsReducer(state: NewsStateType, action: NewsActions) {
         case Types.SET_ERROR:
             return {
                 ...state,
-                loading: false,
                 error: action.message,
             }
         case Types.UPDATE_CATEGORY:
             return {
                 ...state,
-                loading: true,
                 category: action.category,
             }
         case Types.UPDATE_LOADING:

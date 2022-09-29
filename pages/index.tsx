@@ -1,81 +1,112 @@
-import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import ArticleCard from '../components/Article/ArticleCard'
 import ArticleModal from '../components/Article/ArticleModal'
-import Header from '../components/Header'
+import CategoriesFilter from '../components/CategoriesFilter'
+import Inform from '../components/inform'
 import Navbar from '../components/Navbar'
-import NotFound from '../components/NotFound'
+import PageTitle from '../components/PageTitle'
 import ScrollToTop from '../components/ScrollToTop'
+import Search from '../components/Search'
 import Spinner from '../components/Spinner'
 import { useNews } from '../context/news/useNews'
 import { ArticleI } from '../interfaces/Article'
 import { handleError, saveNews, updateLoading } from '../reducers/news.actions'
 import NewsApi from '../services/NewsAPI'
 
-const Home: NextPage = () => {
+const NewsPage = () => {
 
-  const { state, dispatch } = useNews();
+  const { news, category, loading, error, query, dispatch } = useNews();
 
   const [article, setArticle] = useState<ArticleI | null>(null)
 
-  const GET_NEWS_DELAY_TIMEOUT = 3_000;
-
-  const currentNews = state.news[state.category];
+  const currentNews = news[category];
 
   const fetchNews = async () => {
 
+    dispatch(updateLoading(true))
+
     try {
       const response = await NewsApi.getTopHeadlines({
-        category: state.category,
-        ...(state.query !== null) ? { q: state.query } : {}
+        category,
+        ...(query !== null) ? { q: query } : {}
       });
 
-      if (response.status === "error") return dispatch(handleError(response.message!))
+      if (response.status === "error") {
+        dispatch(handleError(response.message!))
+        return
+      }
 
       const news = response.articles;
 
-      dispatch(saveNews({ news, category: state.category }))
+      dispatch(saveNews({ news, category: category }))
+      dispatch(updateLoading(false));
 
     } catch (error) {
-
       dispatch(handleError(`Something was wrong ${error}`))
+      dispatch(updateLoading(false));
 
     }
   }
 
-  useEffect(() => {
-    dispatch(updateLoading(true))
-    const getNewsTimeout = setTimeout(() => fetchNews(), GET_NEWS_DELAY_TIMEOUT)
+  useEffect(() => { fetchNews() }, [query])
 
-    return () => clearTimeout(getNewsTimeout)
-  }, [state.category, state.query])
+  useEffect(() => {
+    if (currentNews && currentNews.length > 0) return dispatch(updateLoading(false));
+    fetchNews()
+
+  }, [category])
 
   return (
     <>
       <Navbar />
+
       <div className="flex min-h-screen relative flex-col items-center">
-        <Header />
+
+        <header className="w-full mt-4">
+          <div className="flex flex-col justify-center items-center w-full">
+            <PageTitle
+              title="Trending Now"
+              subtitle="only the top headlines"
+            />
+
+            <div className="flex items-center flex-col md:px-0 px-6">
+              <Search />
+              <CategoriesFilter />
+            </div>
+          </div>
+        </header>
 
         <main className="flex flex-col mt-4 md:px-0 py-2 px-5 md:w-7/12 w-full justify-center items-center">
 
-          {state.loading && <Spinner />}
+          {loading && <Spinner />}
 
-          {(!state.loading && currentNews.length === 0) && <NotFound />}
-
-          {!state.loading && currentNews.map((article, index) => (
-            <ArticleCard
-              key={index}
-              article={article}
-              onClick={() => setArticle(article)}
-            />
-          ))}
+          {(error && !loading) ?
+            <Inform message={error} />
+            : (
+              <>
+                {(!loading && currentNews.length === 0) && <Inform message="No news to show now" />}
+                {!loading && currentNews.map((article, index) => (
+                  <ArticleCard
+                    key={index}
+                    article={article}
+                    onClick={() => setArticle(article)}
+                  />
+                ))}
+              </>
+            )}
         </main>
 
-        {article && <ArticleModal article={article} onClose={() => setArticle(null)} />}
+        {article && (
+          <ArticleModal
+            article={article}
+            onClose={() => setArticle(null)}
+          />
+        )}
+
         <ScrollToTop />
       </div>
     </>
   )
 }
 
-export default Home
+export default NewsPage
