@@ -11,9 +11,9 @@ const ArticleModal = ({ article, onClose }: { article: ArticleI, onClose: () => 
                 <i className="ri-arrow-left-line"></i>
             </span>
 
-            <h1 className="font-bold lg:text-3xl md:text-lg text-xl mt-4">{article.title}</h1>
+            <h1 className="font-bold lg:text-3xl md:text-lg text-xl mt-4 md:text-left text-center">{article.title}</h1>
 
-            <div className="border mt-3 bg-slate-700/20 py-2 grid grid-cols-2 border-gray-400 px-3">
+            <div className="border mt-3 bg-slate-700/20 py-2 grid md:grid-cols-2 grid-cols-1 md:gap-0 gap-y-2 border-gray-400 px-3">
                 <span><strong>Author: </strong><span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.author) }} /></span>
                 <span><strong>Published: </strong>{new Date(article.publishedAt).toLocaleString()}</span>
                 <span><strong>source: </strong>{article.source.name}</span>
