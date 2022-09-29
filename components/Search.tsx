@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNews } from "../context/news/useNews";
+import { useNews } from "@/context/news/useNews";
 import { searchByQuery } from "../reducers/news/news.actions";
 
 const Search = () => {

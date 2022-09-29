@@ -1,10 +1,10 @@
 import { GetServerSideProps } from 'next'
-import Navbar from '../components/Navbar';
-import PageTitle from '../components/PageTitle';
-import ScrollToTop from '../components/ScrollToTop';
-import SourceCard from '../components/SourceCard';
-import { SourceI } from '../interfaces/Source'
-import newsApi from '../services/NewsAPI'
+import Navbar from '@/components/Navbar';
+import PageTitle from '@/components/PageTitle';
+import ScrollToTop from '@/components/ScrollToTop';
+import SourceCard from '@/components/SourceCard';
+import { SourceI } from '@/interfaces/Source'
+import newsApi from '@/services/NewsAPI'
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const response = await newsApi.getAllSources();

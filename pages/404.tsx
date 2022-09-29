@@ -1,4 +1,4 @@
-import Inform from "../components/Inform";
+import Inform from "@/components/Inform";
 
 const NotFound = () => {
     return (

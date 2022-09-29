@@ -1,5 +1,4 @@
-import React from 'react'
-import { SourceI } from '../interfaces/Source'
+import { SourceI } from '@/interfaces/Source'
 import { CATEGORIES_LIST as categories } from "../utils/categories"
 import Link from 'next/link';
 

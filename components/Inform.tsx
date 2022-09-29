@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Inform = ({ width = "8rem", message }: { width?: number | string, message: string }) => {
 

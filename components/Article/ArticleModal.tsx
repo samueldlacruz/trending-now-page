@@ -1,5 +1,5 @@
 import DOMPurify from "dompurify"
-import { ArticleI } from "../../interfaces/Article"
+import { ArticleI } from "@/interfaces/Article"
 import ArticleContent from "./ArticleContent"
 
 const ArticleModal = ({ article, onClose }: { article: ArticleI, onClose: () => void }) => {

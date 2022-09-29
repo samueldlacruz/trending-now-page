@@ -1,6 +1,6 @@
-import { useNews } from "../context/news/useNews";
+import { useNews } from "@/context/news/useNews";
 import { updateCategory, updateLoading } from "../reducers/news/news.actions";
-import { CATEGORIES_LIST as categories } from "../utils/categories"
+import { CATEGORIES_LIST as categories } from "@/utils/categories"
 
 const CategoriesFilter = () => {
 

@@ -1,4 +1,4 @@
-import { ArticleI } from "../../interfaces/Article"
+import { ArticleI } from "@/interfaces/Article"
 import DOMPurify from 'dompurify';
 import { useState } from "react";
 
