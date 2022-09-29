@@ -2,7 +2,7 @@ import DOMPurify from 'dompurify';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
-const ArticleDetailsContent = ({ url, content }: { url: string, content: string }) => {
+const ArticleContent = ({ url, content }: { url: string, content: string }) => {
 
     const [isUrlCopied, setIsUrlCopied] = useState(false);
 
@@ -33,4 +33,4 @@ const ArticleDetailsContent = ({ url, content }: { url: string, content: string 
     )
 }
 
-export default ArticleDetailsContent
+export default ArticleContent

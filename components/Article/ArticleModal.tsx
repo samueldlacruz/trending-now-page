@@ -1,12 +1,12 @@
 import DOMPurify from "dompurify"
 import { NewsArticleI } from "../../interfaces/News"
-import ArticleDetailsContent from "./ArticleDetailsContent"
+import ArticleContent from "./ArticleContent"
 
 const ArticleModal = ({ article, onClose }: { article: NewsArticleI, onClose: () => void }) => {
   
     return (
         <div className="h-screen overflow-auto border-2 text-white px-4 py-3 border-gray-500 z-50 flex flex-col fixed w-full bg-slate-900/95">
-            <img src={article.urlToImage} className="h-60 rounded opacity-70 object-center object-cover bg-center" alt="article image" />
+            <img src={article.urlToImage} className="h-3/5 rounded opacity-70 object-top object-cover bg-center" alt="article image" />
             <span className="absolute top-4 text-2xl h-10 w-10 left-5 rounded-full hover:bg-blue-800 bg-blue-800/40 cursor-pointer flex justify-center items-center" onClick={onClose}>
                 <i className="ri-arrow-left-line"></i>
             </span>
@@ -19,7 +19,7 @@ const ArticleModal = ({ article, onClose }: { article: NewsArticleI, onClose: ()
                 <span><strong>source: </strong>{article.source.name}</span>
             </div>
 
-            <ArticleDetailsContent url={article.url} content={article.content} />
+            <ArticleContent url={article.url} content={article.content} />
         </div>
     )
 }
