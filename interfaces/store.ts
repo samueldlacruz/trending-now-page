@@ -5,6 +5,7 @@ export type NewsStateType =  {
     loading: boolean
     category: string
     error: string | null
+    query: string | null
 }
 
 export type NewsType = {

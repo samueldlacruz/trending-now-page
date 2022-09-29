@@ -1,4 +1,5 @@
 import { NewsArticleI } from "./News"
+import { SourceI } from "./Source"
 
 export interface GetNewsOptionsI {
     category?: string
@@ -9,8 +10,15 @@ export interface GetNewsOptionsI {
     sources?: string
 }
 
-export interface GetNewsResponseI {
+export interface GetResponseI {
     status: string
-    articles: NewsArticleI[]
     message?: string
+}
+
+export interface GetNewsResponseI extends GetResponseI {
+    articles: NewsArticleI[]
+}
+
+export interface GetSourcesResponseI extends GetResponseI {
+    sources: SourceI[]
 }

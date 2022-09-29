@@ -6,6 +6,11 @@ export const updateCategory = (category: string) => ({
     category: category
 })
 
+export const searchByQuery = (query: string) => ({
+    query,
+    type: Types.SEARCH_BY_TEXT,
+})
+
 export const updateLoading = (value: boolean) => ({
     value,
     type: Types.UPDATE_LOADING,

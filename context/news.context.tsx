@@ -7,6 +7,7 @@ const initialState = {
     news: { general: [] as NewsArticleI[] } as NewsType,
     category: "general",
     loading: false,
+    query: null,
     error: null,
     totalResults: 0,
 }

@@ -1,4 +1,4 @@
-import { GetNewsOptionsI, GetNewsResponseI } from "../interfaces/GetNews";
+import { GetNewsOptionsI, GetNewsResponseI, GetSourcesResponseI } from "../interfaces/GetNews";
 import { parametersFormatted } from "../utils/parameters";
 
 class NewsAPI {
@@ -12,7 +12,7 @@ class NewsAPI {
         category: "general",
     }
 
-    async makeAPIRequest(endpoint: "top-headlines" | "everything", parameters: GetNewsOptionsI): Promise<GetNewsResponseI> {
+    async makeAPIRequest(endpoint: "top-headlines" | "everything" | "top-headlines/sources", parameters: GetNewsOptionsI = this.defaultParameters): Promise<any> {
         const response = await fetch(`${this.BASE_URL}/${endpoint}?${parametersFormatted(parameters)}&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`)
 
         return response.json()
@@ -20,8 +20,14 @@ class NewsAPI {
 
     async getTopHeadlines(options: GetNewsOptionsI): Promise<GetNewsResponseI> {
         Object.assign(this.defaultParameters, options)
-        
+
         return this.makeAPIRequest("top-headlines", this.defaultParameters);
+    }
+
+    async getAllSources(): Promise<GetSourcesResponseI> {
+        const { category, ...options } = this.defaultParameters;
+
+        return this.makeAPIRequest("top-headlines/sources", options);
     }
 
     async getEverything(options: Pick<GetNewsOptionsI, "searchIn" | "q" | "sources">): Promise<GetNewsResponseI> {
