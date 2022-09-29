@@ -1,11 +1,10 @@
-import { useContext } from "react"
-import { NewsContext } from "../context/news/news.context"
+import { useNews } from "../context/news/useNews";
 import { updateCategory } from "../reducers/news.actions";
 import { CATEGORIES_LIST as categories } from "../utils/categories"
 
 const CategoriesList = () => {
 
-    const { state: { category: currentCategory }, dispatch } = useContext(NewsContext);
+    const { state: { category: currentCategory }, dispatch } = useNews();
 
     const colors: { [key: string]: string } = {
         "general": "text-white/50",

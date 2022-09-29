@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
-import { NewsContext } from "../context/news/news.context";
+import { useState } from "react";
+import { useNews } from "../context/news/useNews";
 import { searchByQuery } from "../reducers/news.actions";
 
 const Search = () => {
-
+    
+    const { dispatch } = useNews();
+    
     const [terms, setTerms] = useState<string>("")
-
-    const { dispatch } = useContext(NewsContext);
-
+    
     return (
         <div className="mt-4 flex w-full">
             <input

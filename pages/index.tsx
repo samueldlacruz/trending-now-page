@@ -1,24 +1,21 @@
 import type { NextPage } from 'next'
-import { useContext, useEffect, useState } from 'react'
-import ArticleModal from '../components/Article/ArticleModal'
+import { useEffect, useState } from 'react'
 import ArticleCard from '../components/Article/ArticleCard'
+import ArticleModal from '../components/Article/ArticleModal'
 import Header from '../components/Header'
+import Navbar from '../components/Navbar'
 import NotFound from '../components/NotFound'
 import ScrollToTop from '../components/ScrollToTop'
 import Spinner from '../components/Spinner'
-import { NewsContext } from '../context/news/news.context'
+import { useNews } from '../context/news/useNews'
 import { ArticleI } from '../interfaces/Article'
 import { handleError, saveNews, updateLoading } from '../reducers/news.actions'
 import NewsApi from '../services/NewsAPI'
-import { useRouter } from 'next/router'
-import Navbar from '../components/Navbar'
 
 const Home: NextPage = () => {
 
+  const { state, dispatch } = useNews();
 
-  const router = useRouter();
-
-  const { state, dispatch } = useContext(NewsContext);
   const [article, setArticle] = useState<ArticleI | null>(null)
 
   const GET_NEWS_DELAY_TIMEOUT = 3_000;
