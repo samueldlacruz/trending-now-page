@@ -1,5 +1,5 @@
 import { NewsArticleI } from "../interfaces/News"
-import { Types } from "./news.reducer"
+import { Types } from "./news.types"
 
 export const updateCategory = (category: string) => ({
     type: Types.UPDATE_CATEGORY,

@@ -1,22 +1,8 @@
-import { NewsArticleI } from "../interfaces/News";
-import { NewsStateType } from "../interfaces/store"
-
-export enum Types {
-    SAVE_NEWS = "SET_NEWS",
-    UPDATE_CATEGORY = "UPDATE_CATEGORY",
-    SET_ERROR = "SET_ERROR",
-    UPDATE_LOADING = "SET_LOAD",
-    SEARCH_BY_TEXT = "SEARCH_BY_TEXT",
-}
-
-export type NewsActions =
-    | { type: Types.SAVE_NEWS, payload: { category: string, news: NewsArticleI[] } }
-    | { type: Types.UPDATE_CATEGORY, category: string }
-    | { type: Types.SET_ERROR, message: string }
-    | { type: Types.UPDATE_LOADING, value: boolean }
-    | {type: Types.SEARCH_BY_TEXT, query: string }
+import { NewsStateType } from "../interfaces/store";
+import { NewsActions, Types } from "./news.types";
 
 export function NewsReducer(state: NewsStateType, action: NewsActions) {
+
     switch (action.type) {
         case Types.SAVE_NEWS:
             return {
@@ -40,15 +26,9 @@ export function NewsReducer(state: NewsStateType, action: NewsActions) {
                 category: action.category,
             }
         case Types.UPDATE_LOADING:
-            return {
-                ...state,
-                loading: action.value
-            }
-        case Types.SEARCH_BY_TEXT: 
-             return {
-                ...state,
-                 query: action.query
-             }
+            return { ...state, loading: action.value }
+        case Types.SEARCH_BY_TEXT:
+            return { ...state, query: action.query }
         default:
             return state
     }
