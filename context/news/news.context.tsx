@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useReducer } from "react";
 import { ArticleI } from "../../interfaces/Article";
-import { NewsReducer } from "../../reducers/news.reducer";
+import { NewsReducer } from "../../reducers/news/news.reducer";
 import { NewsStateType, NewsType } from "./news.interface";
 
 const initialState = {

@@ -1,4 +1,4 @@
-import { ArticleI } from "../interfaces/Article";
+import { ArticleI } from "../../interfaces/Article";
 
 export enum Types {
     SAVE_NEWS = "SET_NEWS",

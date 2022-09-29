@@ -1,4 +1,4 @@
-import { ArticleI } from "../interfaces/Article"
+import { ArticleI } from "../../interfaces/Article"
 import { Types } from "./news.types"
 
 export const updateCategory = (category: string) => ({

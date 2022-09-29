@@ -1,4 +1,4 @@
-import { NewsStateType } from "../context/news/news.interface";
+import { NewsStateType } from "../../context/news/news.interface";
 import { NewsActions, Types } from "./news.types";
 
 export function NewsReducer(state: NewsStateType, action: NewsActions) {

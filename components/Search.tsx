@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNews } from "../context/news/useNews";
-import { searchByQuery } from "../reducers/news.actions";
+import { searchByQuery } from "../reducers/news/news.actions";
 
 const Search = () => {
     
     const { dispatch } = useNews();
-    
+
     const [terms, setTerms] = useState<string>("")
     
     return (
