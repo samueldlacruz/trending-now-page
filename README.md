@@ -1,8 +1,7 @@
-<div style="text-align:center">
-<h2>Trending now page 📰 </h2>
-</div>
+Trending now page 📰 
+=============
 
-#### Overview
+## Overview
 
 **Trending now page** is a website to read the most revealing news so far and get a directory of sources about news.
 
@@ -15,7 +14,7 @@ On this website, you can:
  - Read news (is obviously).
 - Has an almanac of sources about news.
 
-#### Tech
+## Tech
 
 This website was created with:
 
@@ -24,7 +23,7 @@ This website was created with:
 - Tailwind CSS
 - News API, ***<a href="http://newsapi.org/">here.</a>***
 
-#### Setup
+## Setup
 
 You want to run the project on your PC:
 - clone and install the project.
