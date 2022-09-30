@@ -1,4 +1,7 @@
-## Trending now page 📰 
+<h2 style="text-align:center">
+Trending now page 📰 
+</h2>
+
 ----
 #### Overview
 
@@ -14,6 +17,7 @@ On this <a href="https://trending-now.vercel.app/">website</a>, you can:
 - Has an almanac of sources about news.
 
 #### Tech
+
 This website was created with:
 
 - NextJS
@@ -21,7 +25,8 @@ This website was created with:
 - Tailwind CSS
 - News API, ***<a href="http://newsapi.org/">here.</a>***
 
-### Setup
+#### Setup
+
 You want to run the project on your PC:
 - clone and install the project.
 
