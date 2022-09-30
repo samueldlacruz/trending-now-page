@@ -1,8 +1,7 @@
-<h2 style="text-align:center">
-Trending now page 📰 
-</h2>
+<div style="text-align:center">
+<h2>Trending now page 📰 </h2>
+</div>
 
-----
 #### Overview
 
 **Trending now page** is a website to read the most revealing news so far and get a directory of sources about news.
