@@ -11,7 +11,7 @@ Trending now page 📰
 
 ![sources page](./screenshots/screenshot-sources.jpg "sources page screenshot")
 
-On this <a href="https://trending-now.vercel.app/">website</a>, you can: 
+On this website, you can: 
 - Filter news by categories (Ex: sport, business, etc).
  - Read news (is obviously).
 - Has an almanac of sources about news.
