@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Navbar from '@/components/Navbar';
 import PageTitle from '@/components/PageTitle';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -6,7 +6,11 @@ import SourceCard from '@/components/SourceCard';
 import { SourceI } from '@/interfaces/Source'
 import newsApi from '@/services/NewsAPI'
 
-export const getServerSideProps: GetServerSideProps = async () => {
+type Props = {
+    sources: SourceI[]
+}
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const response = await newsApi.getAllSources();
 
     if (response.status === "error") {
@@ -22,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
 }
 
-const SourcesPage = ({ sources }: { sources: SourceI[] }) => {
+const SourcesPage: NextPage<Props> = ({ sources }) => {
 
     return (
         <>
@@ -32,7 +36,7 @@ const SourcesPage = ({ sources }: { sources: SourceI[] }) => {
 
                 <main className="flex flex-col md:px-10 px-5 mt-8 w-full justify-center items-center">
                     <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-8 gap-5">
-                        {sources.map((source) => <SourceCard key={source.id} source={source} />)}
+                        {sources.map((source) => <SourceCard key={`source-card-${source.id}`} source={source} />)}
                     </div>
                 </main>
 
