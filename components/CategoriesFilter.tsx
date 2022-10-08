@@ -1,6 +1,6 @@
 import { useNews } from "@/context/news/useNews";
 import { updateCategory, updateLoading } from "../reducers/news/news.actions";
-import { CATEGORIES_LIST as categories } from "@/utils/categories"
+import { CATEGORIES_LIST as categories, colors } from "@/utils/categories"
 
 const CategoriesFilter = () => {
 
@@ -9,14 +9,6 @@ const CategoriesFilter = () => {
     const changeCategory = (categoryName: string) => {
         dispatch(updateCategory(categoryName))
         dispatch(updateLoading(true));
-    }
-
-    const colors: { [key: string]: string } = {
-        "general": "text-white/50",
-        "technology": "text-green-400",
-        "business": "text-blue-400",
-        "entertainment": "text-orange-400",
-        "sports": "text-amber-500",
     }
 
     return (

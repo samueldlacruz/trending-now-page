@@ -1,18 +1,10 @@
 import { SourceI } from '@/interfaces/Source'
-import { CATEGORIES_LIST as categories } from "../utils/categories"
+import { CATEGORIES_LIST as categories, colors } from "@/utils/categories"
 import Link from 'next/link';
 
 const SourceCard = ({ source }: { source: SourceI }) => {
 
     const CATEGORY_ICON_NAME = categories.find(category => category.name === source.category)?.icon;
-
-    const colors: { [key: string]: string } = {
-        "general": "text-white/50",
-        "technology": "text-green-400",
-        "business": "text-blue-400",
-        "entertainment": "text-orange-400",
-        "sports": "text-amber-500",
-    }
 
     return (
         <div className="source-card">
