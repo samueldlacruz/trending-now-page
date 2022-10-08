@@ -2,7 +2,7 @@ import { ArticleI } from "@/interfaces/Article"
 import DOMPurify from 'dompurify';
 import { useState } from "react";
 
-const ArticleCard = ({ article, onClick }: { article: ArticleI, onClick: () => void }) => {
+const ArticleCard = ({ article, onClick }: { article: ArticleI, onClick: (article: ArticleI) => void }) => {
 
     const [hasImageLoaded, setHasImageLoaded] = useState(false);
 
@@ -11,7 +11,7 @@ const ArticleCard = ({ article, onClick }: { article: ArticleI, onClick: () => v
     })
 
     return (
-        <div className="article-card group" onClick={onClick}>
+        <div className="article-card group" onClick={() => onClick(article)}>
             <img
                 src={article.urlToImage}
                 onLoad={() => setHasImageLoaded(prev => !prev)}
@@ -26,7 +26,10 @@ const ArticleCard = ({ article, onClick }: { article: ArticleI, onClick: () => v
 
                 <p className="article-card__footer">
                     <span><strong>Source: </strong>{article.source.name}</span>
-                    <time className="italic" dateTime="2008-02-14 20:00">{new Date(article.publishedAt).toDateString()}</time>
+                    
+                    <time className="italic" dateTime={article.publishedAt}>
+                        {new Date(article.publishedAt).toDateString()}
+                    </time>
                 </p>
             </div>
         </div>

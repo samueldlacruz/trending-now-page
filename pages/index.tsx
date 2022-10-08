@@ -87,7 +87,7 @@ const NewsPage = () => {
                 <ArticleCard
                   key={index}
                   article={article}
-                  onClick={() => setArticle(article)}
+                  onClick={(article) => setArticle(article)}
                 />
               ))}
             </>
