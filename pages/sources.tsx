@@ -29,20 +29,18 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 const SourcesPage: NextPage<Props> = ({ sources }) => {
 
     return (
-        <>
-            <div className="flex min-h-screen mb-5 relative flex-col">
-                <Navbar />
-                <PageTitle title="Sources" />
+        <div className="flex min-h-screen mb-5 relative flex-col">
+            <Navbar />
+            <PageTitle title="Sources" />
 
-                <main className="flex flex-col md:px-10 px-5 mt-8 w-full justify-center items-center">
-                    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-8 gap-5">
-                        {sources.map((source) => <SourceCard key={`source-card-${source.id}`} source={source} />)}
-                    </div>
-                </main>
+            <main className="flex flex-col md:px-10 px-5 mt-8 w-full justify-center items-center">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-8 gap-5">
+                    {sources.map((source) => <SourceCard key={`source-card-${source.id}`} source={source} />)}
+                </div>
+            </main>
 
-                <ScrollToTop />
-            </div>
-        </>
+            <ScrollToTop />
+        </div>
     )
 }
 
