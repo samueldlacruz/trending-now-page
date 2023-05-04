@@ -1,10 +1,20 @@
 import { SourceI } from '@/interfaces/Source'
-import { CATEGORIES_LIST as categories, colors } from "@/utils/categories"
+import { CATEGORIES_LIST as categories } from "@/utils/categories"
 import Link from 'next/link';
+
+const colors: { [key: string]: string } = {
+    "general": "text-white/50",
+    "technology": "text-green-400",
+    "business": "text-blue-400",
+    "entertainment": "text-orange-400",
+    "sports": "text-amber-500",
+}
 
 const SourceCard = ({ source }: { source: SourceI }) => {
 
     const CATEGORY_ICON_NAME = categories.find(category => category.name === source.category)?.icon;
+
+    let colorClasses = colors[source.category]
 
     return (
         <div className="source-card">
@@ -18,7 +28,7 @@ const SourceCard = ({ source }: { source: SourceI }) => {
             </div>
 
             <div className="border-t py-1 flex align-center border-gray-300/20">
-                <i className={`${CATEGORY_ICON_NAME} ${colors[source.category]} pl-4 border-r border-gray-300/20 text-xl pr-3`}></i>
+                <i className={`${CATEGORY_ICON_NAME} ${colorClasses} pl-4 border-r border-gray-300/20 text-xl pr-3`}></i>
 
                 <Link href={source.url} passHref>
                     <a target="_blank" rel="noopener">

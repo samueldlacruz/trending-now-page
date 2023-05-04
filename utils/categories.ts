@@ -21,14 +21,6 @@ const CATEGORIES_LIST = [
     },
 ]
 
-const colors: { [key: string]: string } = {
-    "general": "text-white/50",
-    "technology": "text-green-400",
-    "business": "text-blue-400",
-    "entertainment": "text-orange-400",
-    "sports": "text-amber-500",
-}
-
 export {
-    CATEGORIES_LIST, colors
+    CATEGORIES_LIST
 }
