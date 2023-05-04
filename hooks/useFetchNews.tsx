@@ -20,6 +20,8 @@ export const useFetchNews = () => {
 
             if (response.status === "error") {
                 dispatch(handleError(response.message!))
+                dispatch(updateLoading(false))
+                
                 return
             }
 
